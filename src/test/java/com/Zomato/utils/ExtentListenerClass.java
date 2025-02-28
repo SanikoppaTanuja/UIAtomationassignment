@@ -37,7 +37,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 		{
 			
 			String timestamp = new SimpleDateFormat("yyyy.mm.dd.hh.mm.ss").format(new Date());
-			String reportName = "MyStoreTestReport-" + timestamp + ".html";
+			String reportName = "MyTestReport-" + timestamp + ".html";
 			htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "//Reports//" + reportName);
 			reports = new ExtentReports();
 			reports.attachReporter(htmlReporter);
@@ -45,18 +45,18 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 			//add system information/environment info to reports
 			reports.setSystemInfo("Machine:", "testpc1");
 			reports.setSystemInfo("OS", "windows 11");
-			reports.setSystemInfo("browser:", "chrome");
-			reports.setSystemInfo("user name:", "Prachi");
+			//reports.setSystemInfo("browser:", "chrome");
+			reports.setSystemInfo("Tester name:", "Tanuja");
 			
 			//configuration to change look and feel of report
 			htmlReporter.config().setDocumentTitle("Extent Listener Report Demo");
-			htmlReporter.config().setReportName("Th is my First Report");
+			htmlReporter.config().setReportName("This my Test Execution Report");
 			htmlReporter.config().setTheme(Theme.DARK);
 			
 			
 		}
 
-		//OnStart method is called when any Test starts.
+		//O           nStart method is called when any Test starts.
 		public void onStart(ITestContext Result)					
 		{		
 			configureReport();
@@ -81,7 +81,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 			test = reports.createTest(Result.getName());//create entry in html report
 			test.log(Status.FAIL, MarkupHelper.createLabel("Name of the failed test case is: " + Result.getName() ,ExtentColor.RED));
 		
-		String screenShotPath = System.getProperty("user.dir") + "\\ScreenShots\\" + Result.getName() + ".png";
+		String screenShotPath = System.getProperty("user.dir") + "\\Screenshots\\" + Result.getName() + ".png";
 		
 		File screenShotFile = new File(screenShotPath);
 		

@@ -20,9 +20,11 @@ public class SearcTestcase_002 extends Baseclass {
 		asser.assertEquals(actualtitle, expectedtile);
 		
 		driver.manage().window().maximize();
+		logger.info("window maximized");
 		Loginpage loginpage=new Loginpage(driver);
 		
 		loginpage.searcdishes("Pizza");
+		logger.info("keyword pizza entered in searchfield");
 		
 		Thread.sleep(12000);
 		
@@ -37,10 +39,13 @@ public class SearcTestcase_002 extends Baseclass {
 	{
 		driver.get(baseURL);
 		logger.info("URL launched");
+		driver.manage().window().maximize();
+		logger.info("window maximized");
 		Loginpage loginpage=new Loginpage(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		loginpage.login();
 		loginpage.Enternumber("08762820400");
+		logger.info("phone number entered");
 		
 		
 	}
@@ -50,13 +55,22 @@ public class SearcTestcase_002 extends Baseclass {
 	{
 		driver.get(baseURL);
 		Loginpage loginpage=new Loginpage(driver);
+		driver.manage().window().maximize();
+		logger.info("window maximized");
 		loginpage.signup();
+		logger.info(" signup button clicked");
+		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		//driver.findElement(By.xpath("//label[text()='Full Name']")).sendKeys("Tanuja");
 		loginpage.enterfullname("Tanuja");
+		logger.info("fullname entered");
 		loginpage.enteremail("tanuja.sanikoppa@gmail.com");
+		logger.info("email entered");
 		loginpage.clickcheckbox();
+		logger.info("checkbox clicked");
 		loginpage.createaccount();
+		logger.info("create account button clicked");
+		
 	}
 	
 	@Test(groups="regression")
@@ -64,15 +78,19 @@ public class SearcTestcase_002 extends Baseclass {
 	{
 		driver.get(baseURL);
 		logger.info("URL launched");
+		
+		driver.manage().window().maximize();
+		logger.info("window maximized");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Loginpage loginpage=new Loginpage(driver);
 		System.out.println(Loginpage.links.size());
-		
+		logger.info("total number of links printed on console");
+		System.out.println("links on page are " );
 		for(int i=0; i<loginpage.links.size(); i++)
 		{
-			System.out.println("links on page are" + loginpage.links.get(i).getAttribute("href"));
+			System.out.println(loginpage.links.get(i).getAttribute("href"));
 		}
-		
+		logger.info("all the links are printed on console");
 	}
 	
 	

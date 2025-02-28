@@ -5,9 +5,9 @@
     <classes>
       <class name="com.Zomato.testcases.SearcTestcase_002">
         <methods>
+          <include name="signup"/>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="loginuser"/>
         </methods>
       </class> <!-- com.Zomato.testcases.SearcTestcase_002 -->
     </classes>
