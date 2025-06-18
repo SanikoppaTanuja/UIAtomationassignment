@@ -1,4 +1,4 @@
-cpackage com.Zomato.testcases;
+package com.Zomato.testcases;
 
 import org.testng.annotations.Test;
 
